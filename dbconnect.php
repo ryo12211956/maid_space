@@ -1,17 +1,15 @@
 <?php
-require_once 'env.php';
-
-function connect()
-{
-    $host = DB_HOST;
-    $db   = DB_NAME;
-    $user = DB_USER;
-    $pass = DB_PASS;
-
-    $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    
+$db_name = substr($url["heroku_cff8651284cd5d3"], 1);
+$db_host = $url["us-cdbr-east-05.cleardb.net"];
+$user = $url["be31fcaddd81c0"];
+$password = $url["3756fe50"];
+    
+$dsn = "mysql:dbname=".$db_name.";host=".$db_host; 
 
     try {
-        $pdo = new PDO($dsn, $user, $pass, [
+        $pdo = new PDO($dsn, $user, $password, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
