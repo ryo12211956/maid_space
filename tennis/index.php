@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../classes2/UserLogic.php';
 require_once '../functions.php';
+require_once '../classes2/UserLogic.php';
 
 //　ログインしているか判定し、していなかったら新規登録画面へ返す
 $result = UserLogic::checkLogin();
