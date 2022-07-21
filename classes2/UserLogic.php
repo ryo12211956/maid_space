@@ -10,7 +10,8 @@ class UserLogic
    * @return bool $result
    */
   public static function createUser($userData)
-  {
+  { 
+    error_log("createUserin");
     $result = false;
 
     $sql = 'INSERT INTO users (name, email, password) VALUES (?, ?, ?)';

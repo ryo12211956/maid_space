@@ -34,6 +34,7 @@ if ($password !== $password_conf) {
 
 if (count($err) === 0) {
   // ユーザを登録する処理
+  error_log('UserLogic::createUser($_POST)');
   $hasCreated = UserLogic::createUser($_POST);
   
   if(!$hasCreated) {
