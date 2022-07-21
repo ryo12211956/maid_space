@@ -3,6 +3,7 @@ session_start();
 require_once '../functions.php';
 require_once '../classes2/UserLogic.php';
 
+error_log("register.php");
 // エラーメッセージ
 $err = [];
 
