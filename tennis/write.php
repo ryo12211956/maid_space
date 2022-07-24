@@ -1,4 +1,5 @@
 <?php
+  require_once '../dbconnect.php';
   include 'includes/login.php';
   // データの受け取り
   $name = $_POST['name'];
@@ -27,14 +28,10 @@
   // 名前をクッキーにセット
   setcookie('name', $name, time() + 60*60*24*30);
 
-  // DBに接続
-  $dsn = 'mysql:host=localhost;dbname=tennis;charset=utf8';
-  $user = 'root';
-  $password = ''; // rootに設定したパスワード
-
+  
   try {
     // PDOインスタンスの作成
-    $db = new PDO($dsn, $user, $password);
+    $db = connect();
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     // プリペアドステートメントを作成
     $stmt = $db->prepare("

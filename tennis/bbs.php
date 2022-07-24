@@ -1,12 +1,9 @@
 <?php
+  require_once '../dbconnect.php';
   include 'includes/login.php';
+
   // 1ページに表示される書き込みの数
   $num = 10;
-
-  // DBに接続
-  $dsn = 'mysql:host=localhost;dbname=tennis;charset=utf8';
-  $user = 'root';
-  $password = '';
 
   // GETメソッドで2ページ目以降が指定されているとき
   $page = 1;
@@ -16,7 +13,7 @@
 
   try {
     // PDOインスタンスの生成
-    $db = new PDO($dsn, $user, $password);
+    $db = connect();
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     // プリペアドステートメントを作成
     $stmt = $db->prepare("SELECT * FROM bbs ORDER BY date DESC LIMIT :page, :num");

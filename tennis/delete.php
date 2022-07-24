@@ -1,5 +1,7 @@
 <?php
+require_once '../dbconnect.php';
 include 'includes/login.php';
+
     // データの受け取り
     $id = intval($_POST['id']);
     $pass = $_POST['pass'];
@@ -16,13 +18,8 @@ include 'includes/login.php';
         exit();
     }
 
-    // DBに接続
-    $dsn = 'mysql:host=localhost;dbname=tennis;charset=utf8';
-    $user = 'root';
-    $password = '';
-
     try {
-        $db = new PDO($dsn, $user, $password);
+        $db = connect();
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         // プリペアドステートメントを作成
         $stmt = $db->prepare("DELETE FROM bbs WHERE id=:id AND pass=:pass");
