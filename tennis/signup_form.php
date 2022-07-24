@@ -48,7 +48,7 @@ unset($_SESSION['login_err']);
     <input type="submit" value="新規登録">
   </p>
   </form>
-  <a href="/tennis/login_form.php">ログインする</a>
+  <a href="login_form.php">ログインする</a>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
