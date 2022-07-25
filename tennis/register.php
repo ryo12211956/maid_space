@@ -3,7 +3,6 @@ session_start();
 require_once '../functions.php';
 require_once '../classes2/UserLogic.php';
 
-error_log("register.php");
 // エラーメッセージ
 $err = [];
 
@@ -34,7 +33,6 @@ if ($password !== $password_conf) {
 
 if (count($err) === 0) {
   // ユーザを登録する処理
-  error_log('UserLogic::createUser($_POST)');
   $hasCreated = UserLogic::createUser($_POST);
   
   if(!$hasCreated) {
